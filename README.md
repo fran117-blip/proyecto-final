@@ -66,7 +66,7 @@ Asegúrate de tener instalado un servidor local (como XAMPP o LAMP stack):
 
 ### 2. Clonar el Repositorio
 Abre tu terminal y ejecuta el siguiente comando para traer el código a tu máquina:
-```bash
+bash
 git clone [https://github.com/fran117-blip/proyecto-final.git](https://github.com/fran117-blip/proyecto-final.git)
 ...
 
