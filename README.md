@@ -23,7 +23,7 @@ Para replicar este entorno de forma local, sigue estos pasos:
 
 1. **Clonar el repositorio:**
    ```bash
-   git clone [https://github.com/tu-usuario/nombre-del-proyecto.git](https://github.com/tu-usuario/nombre-del-proyecto.git)
+   git clone https://github.com/fran117-blip/proyecto-final.git
 
 
 ## 👤 Autor
