@@ -56,7 +56,7 @@ A diferencia de otros sistemas, este software se enfoca estrictamente en la **ge
 
 ## 🚀 Instalación y Uso
 
-Sigue estos pasos para configurar el entorno de desarrollo local en tu sistema Linux:
+Sigue estos pasos para configurar el entorno de desarrollo local en tu navegador:
 
 ### 1. Requisitos Previos
 Asegúrate de tener instalado un servidor local (como XAMPP o LAMP stack):
