@@ -25,7 +25,7 @@
 
 <p align="center">
   <a href="#contacto">
-    <img src="https://img.shields.io/badge/👤_AUTOR-F._ALVAREZ-9370DB.svg?style=flat" alt="Author F. Alvarez">
+    <img src="https://img.shields.io/badge/👤_AUTOR-F._Javier-9370DB.svg?style=flat" alt="Author F. Alvarez">
   </a>
 </p>
 
