@@ -15,7 +15,7 @@ A diferencia de otros sistemas, este software se enfoca estrictamente en la **ge
 ## 🛠️ Especificaciones Técnicas
 * **Entorno de Desarrollo:** Desarrollado y optimizado sobre sistemas **Linux**.
 * **Base de Datos:** MySQL 
-* **Lenguajes/Frameworks:**  PHP, JavaScript
+* **Lenguajes/Frameworks:**  PHP, JavaScript, Css
 * **Enfoque:** Gestión operativa y administrativa (Mantenimiento Industrial).
 
 ## 🚀 Instalación y Uso
