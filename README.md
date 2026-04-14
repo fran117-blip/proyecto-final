@@ -25,6 +25,5 @@ Para replicar este entorno de forma local, sigue estos pasos:
    ```bash
    git clone https://github.com/fran117-blip/proyecto-final.git
 
-
 ## 👤 Autor
 Francisco Javier - Estudiante de TSU en Mantenimiento de Maquinaria Pesada
