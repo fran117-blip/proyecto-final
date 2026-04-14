@@ -52,7 +52,7 @@ A diferencia de otros sistemas, este software se enfoca estrictamente en la **ge
 ## 🛠️ Especificaciones Técnicas
 * **Base de Datos:** MySQL
 * **Lenguajes:** PHP, JavaScript, CSS
-* **Entorno:** Optimizado para sistemas **Linux y Windows**.
+* **Entorno:** Optimizado para **Navegadores**.
 
 ## 🚀 Instalación y Uso
 
