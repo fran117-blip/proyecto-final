@@ -85,6 +85,15 @@ El sistema ha sido testeado y optimizado para los siguientes navegadores moderno
 * **Servidor de Datos:** MySQL.
 * **Servidor Web:** Recomendado Apache (XAMPP/LAMP).
 
+## 📝 Observaciones y Notas de Desarrollo
+
+Durante el desarrollo de la **V2** de este sistema, se implementaron criterios específicos para adaptar el software a las necesidades reales de un taller de transporte de carga:
+
+* **Estructura de Datos Dinámica:** El archivo `flota_db_v2.sql` incluye relaciones normalizadas entre las unidades y sus bitácoras, lo que permite un historial clínico por vehículo sin duplicidad de datos.
+* **Prioridad Operativa:** Se omitieron deliberadamente los módulos de facturación y costos financieros para maximizar el rendimiento de la interfaz en la captura de datos técnicos (horómetros y kilometraje).
+* **Seguridad de Archivos:** El directorio `uploads/` está configurado para almacenar documentos técnicos o fotos de evidencias de mantenimiento, asegurando que la información visual esté ligada al folio de reparación.
+* **Optimización de Consultas:** Las consultas en PHP han sido optimizadas para manejar grandes volúmenes de registros de inventario (refacciones) sin degradar la velocidad de carga en el navegador.
+
 ## 🎨 Interfaz y Diseño
 El diseño fue pensado para ser **moderno y elegante**, facilitando la lectura de datos técnicos complejos. La interfaz está optimizada para evitar la fatiga visual durante jornadas largas de administración de maquinaria.
 
