@@ -72,7 +72,6 @@ Abre tu terminal y ejecuta el siguiente comando para traer el código a tu máqu
 ```bash
 git clone [https://github.com/fran117-blip/proyecto-final.git](https://github.com/fran117-blip/proyecto-final.git)
 ```
-...
 
 ## 🌐 Compatibilidad Web
 El sistema ha sido testeado y optimizado para los siguientes navegadores modernos:
