@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="path/to/tu-logo-grande.png" alt="Logo SIGM" width="200"/>
+  <img src="assets/img/logo_sistema.png"" alt="Logo SIGM" width="200"/>
 </p>
 
 <h1 align="center">SIGM &mdash; Mantenimiento de Maquinaria Pesada v2</h1>
