@@ -66,15 +66,6 @@ Asegúrate de tener instalado un servidor local (como XAMPP o LAMP stack):
 
 ### 2. Clonar el Repositorio
 Abre tu terminal y ejecuta el siguiente comando para traer el código a tu máquina:
-## 🚀 Instalación y Uso
-
-Sigue estos pasos para configurar el entorno de desarrollo local en tu sistema Linux:
-
-### 1. Requisitos Previos
-Asegúrate de tener instalado un servidor local (como XAMPP o LAMP stack):
-* **PHP** (7.4 o superior)
-* **MySQL / MariaDB**
-* **Servidor Apache**
 
 ### 2. Clonar el Repositorio
 Abre tu terminal y ejecuta el siguiente comando para traer el código a tu máquina:
@@ -82,6 +73,24 @@ Abre tu terminal y ejecuta el siguiente comando para traer el código a tu máqu
 git clone [https://github.com/fran117-blip/proyecto-final.git](https://github.com/fran117-blip/proyecto-final.git)
 ```
 ...
+
+## 🌐 Compatibilidad Web
+El sistema ha sido testeado y optimizado para los siguientes navegadores modernos:
+* **Google Chrome / Chromium** (Recomendado)
+* **Brave Browser**
+* **Mozilla Firefox**
+* **Microsoft Edge**
+
+> **Nota:** Se recomienda el uso de navegadores basados en **Chromium** para una mejor interpretación de los scripts de gestión de inventarios.
+
+## 🧱 Estructura de Desarrollo
+* **Frontend:** HTML5, CSS3 (Diseño moderno y elegante) y JavaScript para la interactividad de las tablas.
+* **Backend:** PHP para el procesamiento de datos y lógica de negocio.
+* **Servidor de Datos:** MySQL.
+* **Servidor Web:** Recomendado Apache (XAMPP/LAMP).
+
+## 🎨 Interfaz y Diseño
+El diseño fue pensado para ser **moderno y elegante**, facilitando la lectura de datos técnicos complejos. La interfaz está optimizada para evitar la fatiga visual durante jornadas largas de administración de maquinaria.
 
 ## 👤 Autor
 * **Francisco Javier** - *Estudiante de TSU en Mantenimiento de Maquinaria Pesada* - 
