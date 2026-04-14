@@ -1,4 +1,4 @@
-# Sistema Integral para la Gestión de Mantenimiento (SIGM)
+# Sistema Integral para la Gestión de Mantenimiento (SIGM) V2
 
 ## 📋 Descripción del Proyecto
 Este proyecto es una solución digital diseñada para optimizar la administración y el control operativo del mantenimiento de maquinaria pesada. El objetivo principal es centralizar la información técnica para mejorar la disponibilidad de los equipos y facilitar la toma de decisiones en el taller.
