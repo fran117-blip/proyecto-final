@@ -2,10 +2,10 @@
   <img src="assets/img/logo_sistema.png"" alt="Logo SIGM" width="700"/>
 </p>
 
-<h1 align="center">SIGM &mdash; Mantenimiento de Maquinaria Pesada v2</h1>
+<h1 align="center">SIGM &mdash; Gestión de Mantenimiento de Flotillas v2</h1>
 
 <p align="center">
-  <em>"¿Registros en papel? Por favor. Digitaliza, optimiza y domina tu flota."</em>
+  <em>"Optimización operativa para tractocamiones: Máxima disponibilidad, cero registros en papel."</em>
 </p>
 
 <p align="center">
@@ -38,16 +38,16 @@
 ---
 
 # 📋 Descripción del Proyecto
-Este proyecto es una solución digital diseñada para optimizar la administración y el control operativo del mantenimiento de maquinaria pesada. El objetivo principal es centralizar la información técnica para mejorar la disponibilidad de los equipos y facilitar la toma de decisiones en el taller.
+Este sistema es una solución digital especializada en la **administración y control operativo de flotillas de tractocamiones**. Está diseñado para centralizar la información técnica de unidades de carga pesada, permitiendo gestionar ciclos de mantenimiento complejos y garantizar que la flota se mantenga en ruta el mayor tiempo posible.
 
-A diferencia de otros sistemas, este software se enfoca estrictamente en la **gestión técnica y operativa**, dejando de lado los análisis de costos para priorizar la eficiencia en el flujo de trabajo y el seguimiento de las unidades.
+El enfoque es 100% **técnico-operativo**, priorizando la trazabilidad mecánica de cada unidad sobre los análisis financieros, ideal para jefes de taller y administradores de flota.
 
 ## ✨ Características Principales
-* **Gestión de Unidades:** Registro y monitoreo detallado de la flota de maquinaria.
-* **Control de Mantenimiento:** Programación y seguimiento de servicios preventivos y correctivos.
-* **Bitácora de Intervenciones:** Historial completo de reparaciones por equipo.
-* **Inventario de Refacciones:** Gestión de stock de piezas y materiales críticos.
-* **Panel Administrativo:** Interfaz intuitiva para la gestión de usuarios y roles.
+* **Gestión de Unidades (Tractos):** Control por número de económico, modelo y estado operativo.
+* **Mantenimiento Preventivo:** Programación basada en horómetros o kilometraje para evitar paros no programados.
+* **Bitácora de Reparaciones:** Historial crítico de cada unidad para identificar fallas recurrentes.
+* **Control de Refacciones:** Inventario de piezas de alto movimiento (filtros, balatas, bandas).
+* **Gestión de Operadores:** Asignación de responsables y reportes de fallas en ruta.
 
 ## 🛠️ Especificaciones Técnicas
 * **Base de Datos:** MySQL
