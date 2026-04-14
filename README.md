@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/img/logo_sistema.png"" alt="Logo SIGM" width="700"/>
+  <img src="assets/img/logo_sistema.png" alt="Logo SIGM" width="700"/>
 </p>
 
 <h1 align="center">SIGM &mdash; Gestión de Mantenimiento de Flotillas v2</h1>
@@ -67,7 +67,7 @@ Asegúrate de tener instalado un servidor local (como XAMPP o LAMP stack):
 ### 2. Clonar el Repositorio
 Abre tu terminal y ejecuta el siguiente comando para traer el código a tu máquina:
 ```bash
-git clone [https://github.com/fran117-blip/proyecto-final.git](https://github.com/fran117-blip/proyecto-final.git)
+git clone [https://github.com/fran117-blip/proyecto-final.git]
 ```
 
 ## 🌐 Compatibilidad Web
