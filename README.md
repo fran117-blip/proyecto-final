@@ -59,7 +59,7 @@ A diferencia de otros sistemas, este software se enfoca estrictamente en la **ge
 ...
 
 ## 👤 Autor
-* **Francisco Javier ** - *Estudiante de TSU en Mantenimiento de Maquinaria Pesada* - 
+* **Francisco Javier** - *Estudiante de TSU en Mantenimiento de Maquinaria Pesada* - 
 
 ---
 *Este proyecto fue desarrollado como parte de la formación académica en la Universidad Tecnológica de Nuevo Laredo (UTNL).*
