@@ -66,8 +66,21 @@ Asegúrate de tener instalado un servidor local (como XAMPP o LAMP stack):
 
 ### 2. Clonar el Repositorio
 Abre tu terminal y ejecuta el siguiente comando para traer el código a tu máquina:
-bash
+## 🚀 Instalación y Uso
+
+Sigue estos pasos para configurar el entorno de desarrollo local en tu sistema Linux:
+
+### 1. Requisitos Previos
+Asegúrate de tener instalado un servidor local (como XAMPP o LAMP stack):
+* **PHP** (7.4 o superior)
+* **MySQL / MariaDB**
+* **Servidor Apache**
+
+### 2. Clonar el Repositorio
+Abre tu terminal y ejecuta el siguiente comando para traer el código a tu máquina:
+```bash
 git clone [https://github.com/fran117-blip/proyecto-final.git](https://github.com/fran117-blip/proyecto-final.git)
+```
 ...
 
 ## 👤 Autor
