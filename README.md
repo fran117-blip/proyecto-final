@@ -52,14 +52,14 @@ A diferencia de otros sistemas, este software se enfoca estrictamente en la **ge
 ## 🛠️ Especificaciones Técnicas
 * **Base de Datos:** MySQL
 * **Lenguajes:** PHP, JavaScript, CSS
-* **Entorno:** Optimizado para sistemas **Linux**.
+* **Entorno:** Optimizado para sistemas **Linux y Windows**.
 
 ## 🚀 Instalación y Uso
 *(Aquí mantienes los comandos de instalación que ya tenías)*
 ...
 
 ## 👤 Autor
-* **Francisco Javier Alvarez Hernandez** - *Estudiante de TSU en Mantenimiento de Maquinaria Pesada* - [Tu GitHub](https://github.com/tu-usuario)
+* **Francisco Javier ** - *Estudiante de TSU en Mantenimiento de Maquinaria Pesada* - 
 
 ---
 *Este proyecto fue desarrollado como parte de la formación académica en la Universidad Tecnológica de Nuevo Laredo (UTNL).*
