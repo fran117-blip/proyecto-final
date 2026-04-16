@@ -2,7 +2,7 @@
   <img src="assets/img/logo.png" alt="Logo SIGM" width="700"/>
 </p>
 
-<h1 align="center">SIGM &mdash; Gestión de Mantenimiento de Flotillas v2</h1>
+<h1 align="center">OptiFleet &mdash; Gestión de Mantenimiento Pesado v2</h1>
 
 <p align="center">
   <em>"Optimización operativa para tractocamiones: Máxima disponibilidad, cero registros en papel."</em>
