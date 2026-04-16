@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/img/logo_github.png" alt="Logo SIGM" width="700"/>
+  <img src="assets/img/logo.png" alt="Logo SIGM" width="700"/>
 </p>
 
 <h1 align="center">SIGM &mdash; Gestión de Mantenimiento de Flotillas v2</h1>
