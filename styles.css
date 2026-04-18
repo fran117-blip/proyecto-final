@@ -576,7 +576,7 @@ td {
 
 
 /* =========================================
-   NUEVO MODAL PRO (ALTA DE VEHÍCULOS)
+   NUEVO MODAL (ALTA DE VEHÍCULOS)
    ========================================= */
 
 .modal-overlay {
@@ -995,3 +995,245 @@ html.dark td strong {
     color: #f8fafc !important; 
 }
 
+/* --- BOTÓN DE MENÚ (las 3 rayitas) ---
+Por defecto lo ocultamos en computadora.
+   Solo aparece en celular gracias al @media de abajo */
+.btn-hamburguesa {
+    display: none;          /* oculto en desktop */
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    color: #1e293b;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+/* El mismo botón en modo oscuro */
+html.dark .btn-hamburguesa {
+    color: #f8fafc;
+}
+
+/* --- FONDO OSCURO que aparece cuando el menú está abierto ---
+   Cubre toda la pantalla para que al tocarlo se cierre el menú */
+sidebar-overlay {
+    display: block;
+    opacity: 0;              /* invisible */
+    pointer-events: none;    /* no bloquea los clics */
+}
+
+/* Solo cuando tiene la clase "visible" bloquea clics y aparece */
+.sidebar-overlay.visible {
+    opacity: 1;
+    pointer-events: auto;    /* ahora sí bloquea clics */
+}
+
+/* ================================================
+   TABLET - pantallas entre 768px y 1024px
+   ================================================ */
+@media (max-width: 1024px) {
+
+    /* Las 3 tarjetas del dashboard pasan a ser 2 por fila */
+    .grid.gap-6 {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    /* La sección de "Actividad + Gráfica" se apila verticalmente */
+    .dashboard-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Las tablas grandes se pueden deslizar horizontalmente */
+    .tabla-contenedor,
+    .tabla-pro-container {
+        overflow-x: auto;
+    }
+}
+
+/* ================================================
+   CELULAR - pantallas menores a 768px
+   ================================================ */
+@media (max-width: 768px) {
+
+.sidebar {
+    position: relative; /* para que el botón se posicione dentro */
+    }
+
+    /* Muestra el botón ✕ en celular */
+#btn-cerrar-sidebar {
+    display: flex !important;
+    }
+
+    /* El layout deja de ser horizontal y se vuelve vertical */
+    .contenedor-app {
+        flex-direction: column;
+    }
+
+    /* --- MENÚ LATERAL ---
+    Lo escondemos fuera de la pantalla hacia la izquierda.
+       Con JavaScript le agregamos la clase "abierto" para que aparezca */
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -280px;           /* escondido fuera de pantalla */
+        width: 260px;
+        height: 100%;
+        z-index: 100;
+        transition: left 0.3s;  /* animación suave */
+        box-shadow: 4px 0 15px rgba(0,0,0,0.2);
+    }
+
+    /* Clase que agrega JavaScript para mostrar el menú */
+    .sidebar.abierto {
+        left: 0;
+    }
+
+    /* Mostramos el fondo oscuro */
+    .sidebar-overlay {
+        display: block;
+    }
+
+    /* --- BARRA SUPERIOR --- */
+    .navbar-top {
+        height: 60px;
+        padding: 0 1rem;
+        position: sticky;
+        top: 0;
+        z-index: 50;
+    }
+
+    /* Mostramos el botón ☰ */
+    .btn-hamburguesa {
+        display: block;
+    }
+
+    /* Ocultamos el texto del perfil */
+    .perfil-textos {
+        display: none;
+    }
+
+    .mi-navbar-titulo {
+        font-size: 1rem !important;
+    }
+
+    /* --- ÁREA DE TRABAJO --- */
+    #area-trabajo {
+        padding: 1rem !important;
+    }
+
+    /* --- TARJETAS: una sola columna --- */
+    .grid.gap-6 {
+        grid-template-columns: 1fr !important;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* --- ENCABEZADOS: título y botones apilados --- */
+    .flex.justify-between.items-center.mb-8 {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 12px;
+    }
+
+    .flex.justify-between.items-center.mb-8 .flex.gap-3 {
+        width: 100%;
+    }
+
+    .btn-primario,
+    .btn-verde-excel {
+        flex: 1;
+        justify-content: center;
+    }
+
+    .flex.justify-between.items-center.mb-8 .relative {
+        width: 100% !important;
+    }
+
+    /* --- TABLAS: scroll horizontal ---
+    -webkit-overflow-scrolling: touch  →  hace el scroll más suave en iOS
+       touch-action: pan-x pan-y          →  permite deslizar en ambas direcciones */
+    .tabla-contenedor,
+    .tabla-pro-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        touch-action: pan-x pan-y;
+    }
+
+    /* Reducimos el mínimo para que quepa mejor en pantallas de 412px */
+    table {
+        min-width: 420px; /* antes era 580px, eso causaba que los botones quedaran fuera */
+    }
+
+    /* --- ARREGLO DE BOTONES EN TABLA ---
+    touch-action: manipulation  →  elimina el retraso de 300ms al tocar un botón
+       min-width/height de 40px    →  área de toque más grande (más fácil de tocar) */
+    .btn-cuadrado,
+    .btn-icon {
+        min-width: 40px;
+        min-height: 40px;
+        touch-action: manipulation;
+    }
+
+    /* --- FILTROS DEL HISTORIAL: apilados --- */
+    .filtros-box {
+        flex-direction: column !important;
+    }
+
+    .filtros-box select {
+        width: 100% !important;
+    }
+
+    /* --- FORMULARIOS: 1 columna --- */
+    .form-grid,
+    .form-grid-2 {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* --- MODALES: aparecen desde abajo --- */
+    .modal-overlay {
+        padding: 0;
+        align-items: flex-end;
+    }
+
+    .modal-moderno,
+    .modal-caja {
+        width: 100% !important;
+        border-radius: 20px 20px 0 0 !important;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    /* --- PERSONAL: 1 columna --- */
+    .grid-personal {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* --- HISTORIAL: encabezado apilado --- */
+    .header-historial {
+        flex-direction: column !important;
+        gap: 12px !important;
+    }
+
+    .btn-verde-excel {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ================================================
+   CELULAR PEQUEÑO - menores a 480px
+   ================================================ */
+@media (max-width: 480px) {
+
+    .mi-navbar-titulo {
+        font-size: 0.9rem !important;
+    }
+
+    .btn-primario,
+    .btn-verde-excel {
+        font-size: 0.8rem !important;
+        padding: 8px 10px !important;
+    }
+}
