@@ -211,8 +211,117 @@ if (strtolower($_SESSION['rol']) === 'administrador') {
         </main>
     </div>
 
+<!-- BARRA INFERIOR - solo visible en celular -->
+<nav style="
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    z-index: 50;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.08);
+" class="md:hidden">
+
+    <!-- Botón: Mis Tareas -->
+    <button
+        id="nav-btn-tareas"
+        onclick="cambiarPestana('tareas')"
+        style="flex:1; display:flex; flex-direction:column; align-items:center;
+            justify-content:center; padding:10px 0; gap:4px;
+            background:none; border:none; cursor:pointer; color:#4f46e5;">
+        <i class="fas fa-clipboard-list" style="font-size:1.2rem;"></i>
+        <span style="font-size:10px; font-weight:700; text-transform:uppercase;">Tareas</span>
+    </button>
+
+    <!-- Botón: Historial -->
+    <button
+        id="nav-btn-historial"
+        onclick="cambiarPestana('historial')"
+        style="flex:1; display:flex; flex-direction:column; align-items:center;
+            justify-content:center; padding:10px 0; gap:4px;
+            background:none; border:none; cursor:pointer; color:#94a3b8;">
+        <i class="fas fa-history" style="font-size:1.2rem;"></i>
+        <span style="font-size:10px; font-weight:700; text-transform:uppercase;">Historial</span>
+    </button>
+
+    <!-- Botón: Escanear QR (botón circular destacado en el centro) -->
+    <button
+        onclick="abrirEscanerQR()"
+        style="flex:1; display:flex; flex-direction:column; align-items:center;
+            justify-content:center; padding:10px 0; gap:4px;
+            background:none; border:none; cursor:pointer; color:#94a3b8;">
+        <!-- Circulo morado con el ícono -->
+        <div style="width:42px; height:42px; background:#4f46e5; border-radius:50%;
+                    display:flex; align-items:center; justify-content:center;
+                    margin-top:-20px; box-shadow: 0 4px 12px rgba(79,70,229,0.4);">
+            <i class="fas fa-qrcode" style="color:white; font-size:1.1rem;"></i>
+        </div>
+        <span style="font-size:10px; font-weight:700; text-transform:uppercase;">Escanear</span>
+    </button>
+
+    <!-- Botón: Cerrar Sesión -->
+    <a
+        href="api/auth/logout.php"
+        style="flex:1; display:flex; flex-direction:column; align-items:center;
+            justify-content:center; padding:10px 0; gap:4px;
+            text-decoration:none; color:#ef4444;">
+        <i class="fas fa-sign-out-alt" style="font-size:1.2rem;"></i>
+        <span style="font-size:10px; font-weight:700; text-transform:uppercase;">Salir</span>
+    </a>
+
+</nav>
+
+
+<style>
+    /* Espacio en la parte de abajo para que el contenido
+       no quede tapado por la barra de navegación */
+    @media (max-width: 768px) {
+        main {
+            padding-bottom: 75px !important;
+        }
+
+        /* Cards de tareas en 1 columna */
+        #contenedor-tareas {
+            grid-template-columns: 1fr !important;
+        }
+
+        /* Cards de historial en 1 columna */
+        #contenedor-historial {
+            grid-template-columns: 1fr !important;
+        }
+    }
+</style>
+
 <script src="js/auth.js"></script>
 <script src="js/mecanico.js"></script>
+
+<script>
+    /* --- INDICADOR ACTIVO EN LA BARRA INFERIOR ---
+    Cuando cambias de pestaña, el botón activo se pone morado
+       y los demás se ponen grises */
+
+    /* Guardamos referencia a la función original */
+    var cambiarPestanaOriginal = cambiarPestana;
+
+    /* Reemplazamos la función con una nueva que hace lo mismo + actualiza los colores */
+    cambiarPestana = function(pestana) {
+
+        /* Ejecutamos la lógica original */
+        cambiarPestanaOriginal(pestana);
+
+        /* Ponemos todos los botones en gris */
+        document.getElementById('nav-btn-tareas').style.color = '#94a3b8';
+        document.getElementById('nav-btn-historial').style.color = '#94a3b8';
+
+        /* Ponemos el botón activo en morado */
+        var btnActivo = document.getElementById('nav-btn-' + pestana);
+        if (btnActivo) {
+            btnActivo.style.color = '#4f46e5';
+        }
+    };
+</script>
 
 </body>
 </html>
