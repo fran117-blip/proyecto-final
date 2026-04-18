@@ -53,21 +53,22 @@ if (!isset($_SESSION['usuario_id'])) {
     </script>
 </head>
 <body>
+    <div id="sidebar-overlay" class="sidebar-overlay" onclick="cerrarSidebar()"></div>
 
     <div class="contenedor-app">
-        <aside class="sidebar">
-            <?php include 'components/sidebar.php'; ?>
-        </aside>
+    <aside class="sidebar">
+        <?php include 'components/sidebar.php'; ?>
+    </aside>
 
-        <div class="contenido-principal">
-            <header class="navbar-top">
-                <?php include 'components/navbar.php'; ?>
-            </header>
+    <div class="contenido-principal">
+        <header class="navbar-top">
+            <?php include 'components/navbar.php'; ?>
+        </header>
 
-            <main id="area-trabajo">
-                <section id="sec-dashboard" class="seccion-vista">
-                    <?php include 'components/dashboard.php'; ?>
-                </section>
+        <main id="area-trabajo">
+            <section id="sec-dashboard" class="seccion-vista">
+                <?php include 'components/dashboard.php'; ?>
+            </section>
 
                 <section id="sec-flota" class="seccion-vista" style="display:none;">
                     <?php include 'components/flota.php'; ?>
@@ -173,6 +174,16 @@ if (!isset($_SESSION['usuario_id'])) {
             </main>
         </div>
     </div>
+
+    <script>
+    /* Cerrar el menú con la tecla Escape */
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            cerrarSidebar();
+        }
+    });
+</script>
+
 
     <script src="js/auth.js"></script>
     <script src="js/unidades.js"></script>
