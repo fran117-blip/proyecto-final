@@ -57,6 +57,7 @@ body {
     position: sticky;
     top: 0;
     z-index: 50;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .contenido-principal {
@@ -124,23 +125,43 @@ body {
    5. SIDEBAR & NAVEGACIÓN
    ========================================= */
 .brand {
-    padding: 1.5rem;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    padding: 15px 10px 10px 10px; /* Le quitamos todo ese relleno gigante que dejaba espacios */
     text-align: center;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid rgba(37, 99, 235, 0.2);
 }
 
 .brand img {
-    width: 60px !important;
-    height: auto;
-    margin-bottom: 0.5rem;
+    width: 180px;  /* ¡Súper ancho! */
+    height: auto;  /* Al poner auto, ya no lo encerramos en un cuadrado, crece a lo alto de forma natural */
+    max-height: 160px; 
+    object-fit: contain; 
+    display: block;
+    margin: 0 auto 5px auto; /* Quitamos el espacio gigante entre el logo y la palabra OptiFleet */
+    filter: drop-shadow(0 4px 8px rgba(37, 99, 235, 0.2)); 
+}
+
+
+.brand img {
+    width: 180px;  
+    height: auto;  
+    max-height: 160px; 
+    object-fit: contain; 
+    display: block;
+    margin: 0 auto 5px auto; 
+    filter: drop-shadow(0 4px 8px rgba(37, 99, 235, 0.2)); 
 }
 
 .brand span {
     display: block;
+    font-size: 1.5rem; 
     font-weight: 800;
     color: var(--primary);
     letter-spacing: 0.05em;
-    font-size: 1.125rem;
+    margin-top: 0; 
 }
 
 .nav-item {
@@ -728,10 +749,10 @@ html.dark #area-trabajo {
 }
 
 /* Menú Lateral y Marca */
-html.dark .sidebar, 
-html.dark .brand { 
-    background-color: #1e293b !important; 
-    border-color: #334155 !important; 
+/* Menú Lateral y Marca */
+html.dark .sidebar {
+    background-color: #1e293b !important;
+    border-color: #334155 !important;
 }
 
 html.dark .sidebar a, 
@@ -973,3 +994,4 @@ html.dark td .font-bold,
 html.dark td strong {
     color: #f8fafc !important; 
 }
+
