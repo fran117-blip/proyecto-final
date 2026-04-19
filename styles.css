@@ -1237,3 +1237,137 @@ sidebar-overlay {
         padding: 8px 10px !important;
     }
 }
+
+/* ================================================
+   DASHBOARD - Arreglos en móvil
+   ================================================ */
+@media (max-width: 768px) {
+
+    /* La card que contiene la tabla y la gráfica no se sale */
+    .card {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+    }
+
+    /* La tabla no se sale de su card */
+    .tabla-actividad {
+        width: 100% !important;
+        table-layout: fixed; /* las columnas se reparten el espacio disponible */
+    }
+
+    /* Ocultamos Sistema/Servicio y Prioridad
+       Solo dejamos Unidad y Estado */
+    .tabla-actividad th:nth-child(2),
+    .tabla-actividad td:nth-child(2),
+    .tabla-actividad th:nth-child(3),
+    .tabla-actividad td:nth-child(3) {
+        display: none !important;
+    }
+
+    /* La gráfica tampoco se sale */
+    #graficaPareto {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+/* ================================================
+   Flota - Arreglos en móvil
+   ================================================ */
+@media (max-width: 768px) {
+
+    /* Contenedor principal sin desbordamiento */
+    #sec-flota {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 0 !important;
+    }
+
+    /* El contenedor de la tabla */
+    .tabla-pro-container {
+        overflow: visible !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+        background: transparent !important;
+    }
+
+    /* La tabla ocupa todo el ancho */
+    #tabla-unidades {
+        width: 100% !important;
+        min-width: unset !important;  /* quitamos el min-width que pusimos antes */
+    }
+
+    /* Ocultamos encabezados */
+    #tabla-unidades thead {
+        display: none !important;
+    }
+
+    /* Cada fila = tarjeta */
+    #tabla-unidades tbody tr {
+        display: block !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        background: white !important;
+        border-radius: 10px !important;
+        border: 1px solid #e2e8f0 !important;
+        padding: 14px !important;
+        margin-bottom: 10px !important;
+    }
+
+    html.dark #tabla-unidades tbody tr {
+        background: #1e293b !important;
+        border-color: #334155 !important;
+    }
+
+    /* Cada celda apilada */
+    #tabla-unidades tbody td {
+        display: block !important;
+        border: none !important;
+        padding: 3px 0 !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Línea separadora antes de los botones */
+    #tabla-unidades tbody td:last-child {
+        margin-top: 10px !important;
+        padding-top: 10px !important;
+        border-top: 1px solid #f1f5f9 !important;
+    }
+
+    html.dark #tabla-unidades tbody td:last-child {
+        border-top-color: #334155 !important;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* El div externo que contiene botones y buscador se apila */
+    #sec-flota .flex.justify-between.items-center.mb-8 > div {
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 8px !important;
+    }
+
+    /* Los botones en fila */
+    #sec-flota .flota-botones {
+        display: flex !important;
+        width: 100% !important;
+        gap: 8px !important;
+    }
+
+    #sec-flota .flota-botones button {
+        flex: 1 !important;
+        justify-content: center !important;
+    }
+
+    /* Buscador ancho completo */
+    #sec-flota .flota-buscador,
+    #sec-flota .flota-buscador input {
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+}
