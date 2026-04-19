@@ -9,11 +9,13 @@ $data = json_decode(file_get_contents("php://input"));
 
 if (
     !empty($data->economico) &&
+    !empty($data->tipo_servicio)&&
     !empty($data->mecanico) &&
     !empty($data->prioridad) &&
     !empty($data->sistema) &&
     !empty($data->instrucciones)
-) {
+)
+{
     // Limpiamos espacios y pasamos a mayúsculas por si el usuario escribió "t-118" en minúsculas
     $economico = strtoupper(trim($data->economico));
 
@@ -30,8 +32,8 @@ if (
 
     // 2. Si existe, preparamos la inserción en la tabla de mantenimientos
     // Usamos las columnas exactas que vimos en tu phpMyAdmin
-    $query = "INSERT INTO mantenimientos (economico, sistema, prioridad, descripcion, operador_asignado, estado, fecha_ejecucion) 
-              VALUES (?, ?, ?, ?, ?, 'PENDIENTE', CURDATE())";
+    $query = "INSERT INTO mantenimientos (economico, tipo_servicio, sistema, prioridad, descripcion, operador_asignado, estado, fecha_ejecucion) 
+        VALUES (?, ?, ?, ?, ?, ?, 'PENDIENTE', CURDATE())";
     
     $stmt = $conn->prepare($query);
     
@@ -41,12 +43,13 @@ if (
     }
     
     // Vinculamos los 5 datos
-    $stmt->bind_param("sssss", 
-        $economico, 
-        $data->sistema, 
-        $data->prioridad, 
-        $data->instrucciones, 
-        $data->mecanico
+    $stmt->bind_param("ssssss", 
+    $economico,
+    $data->tipo_servicio,
+    $data->sistema, 
+    $data->prioridad, 
+    $data->instrucciones, 
+    $data->mecanico
     );
     
     if ($stmt->execute()) {
