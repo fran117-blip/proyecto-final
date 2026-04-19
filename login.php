@@ -4,159 +4,293 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Sistema de Mantenimiento</title>
-    <link rel="stylesheet" href="styles.css?v=17">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    
-    <script>
-        if (localStorage.getItem('theme') === 'dark') {
-            document.documentElement.classList.add('dark');
-        }
-    </script>
 
     <style>
-        * { box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
-        
-        body, html { 
-            min-height: 100vh; 
-            margin: 0; 
-            padding: 0; 
-            background-color: #f1f5f9; 
-        }
-        
-        .login-bg {
-            min-height: 100vh; 
-            width: 100%;
-            background: linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.6)), 
-                        url('assets/img/fondo_login.webp') center/cover no-repeat; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, sans-serif;
         }
 
+        /* ---- FONDO: la foto ocupa toda la pantalla ---- */
+        .login-bg {
+            min-height: 100vh;
+            width: 100%;
+            background: url('assets/img/fondo_login.webp') center/cover no-repeat;
+            display: flex;
+            align-items: center;     
+            justify-content: center;
+            padding: 20px;
+        }
+
+        /* ---- TARJETA OSCURA ---- */
         .login-card {
-            background: white;
-            padding: 40px;
+            background: rgba(10, 15, 30, 0.85);  /* negro azulado semitransparente */
+            backdrop-filter: blur(12px);           /* desenfoca el fondo detrás */
+            border: 1px solid rgba(255,255,255,0.08);
             border-radius: 20px;
+            padding: 48px 40px;
             width: 100%;
             max-width: 420px;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
             text-align: center;
-            transition: background-color 0.3s ease, border-color 0.3s ease; 
         }
 
-        .logo-icon { font-size: 3rem; color: #2563eb; margin-bottom: 10px; }
-        h2 { margin: 0; color: #1e293b; font-size: 1.5rem; font-weight: 800; transition: color 0.3s ease; }
-        p { color: #64748b; font-size: 0.9rem; margin-top: 5px; margin-bottom: 30px; transition: color 0.3s ease; }
+        /* ---- ÍCONO SUPERIOR ---- */
+        .logo-icon {
+            font-size: 2.5rem;
+            color: #3b82f6;
+            margin-bottom: 16px;
+        }
 
-        .form-group { margin-bottom: 20px; text-align: left; position: relative; }
-        label { display: block; font-size: 0.85rem; font-weight: 600; color: #475569; margin-bottom: 8px; transition: color 0.3s ease; }
-        
+        /* ---- TÍTULOS ---- */
+        .login-card h2 {
+            color: #f8fafc;
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .login-card p {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            margin-bottom: 36px;
+        }
+
+        /* ---- ETIQUETAS ---- */
+        label {
+            display: block;
+            text-align: left;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #94a3b8;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ---- GRUPO DE INPUT ---- */
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        /* ---- INPUTS ---- */
         .input-control {
-            width: 100%; padding: 12px 15px;
-            border: 1px solid #cbd5e1; border-radius: 10px;
-            font-size: 1rem; color: #334155; outline: none; transition: all 0.2s;
-            background-color: white;
+            width: 100%;
+            padding: 13px 16px;
+            background: rgba(255,255,255,0.05);   /* casi transparente */
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 10px;
+            font-size: 0.95rem;
+            color: #f8fafc;
+            outline: none;
+            transition: border-color 0.2s;
         }
-        .input-control:focus { border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15); }
 
+        /* Cuando el input está seleccionado */
+        .input-control:focus {
+            border-color: #3b82f6;
+            background: rgba(59, 130, 246, 0.08);
+        }
+
+        /* Ícono del ojo para ver contraseña */
         .toggle-password {
-            position: absolute; right: 15px; top: 38px;
-            color: #94a3b8; cursor: pointer; transition: color 0.2s;
+            position: absolute;
+            right: 14px;
+            top: 38px;
+            color: #475569;
+            cursor: pointer;
+            transition: color 0.2s;
         }
-        .toggle-password:hover { color: #3b82f6; }
 
+        .toggle-password:hover { color: #94a3b8; }
+
+        /* ---- MENSAJE DE ERROR ---- */
+        #mensaje-error {
+            color: #fca5a5;
+            background: rgba(239, 68, 68, 0.15);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 8px;
+            padding: 10px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: none;
+        }
+
+        /* ---- BOTÓN PRINCIPAL ---- */
         .btn-primary {
-            width: 100%; padding: 12px; background: #2563eb; color: white;
-            border: none; border-radius: 10px; font-size: 1rem; font-weight: 600;
-            cursor: pointer; transition: background 0.2s; box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
-            margin-bottom: 15px;
+            width: 100%;
+            padding: 13px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+            margin-bottom: 12px;
+            letter-spacing: 0.3px;
         }
-        .btn-primary:hover { background: #1d4ed8; }
 
+        .btn-primary:hover {
+            background: #1d4ed8;
+            transform: translateY(-1px);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        /* ---- BOTÓN SECUNDARIO ---- */
         .btn-secondary {
-            width: 100%; padding: 12px; background: white; color: #475569;
-            border: 1px solid #cbd5e1; border-radius: 10px; font-size: 0.95rem; font-weight: 600;
-            cursor: pointer; transition: all 0.2s; display: flex; justify-content: center; align-items: center; gap: 8px;
+            width: 100%;
+            padding: 13px;
+            background: transparent;
+            color: #94a3b8;
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
         }
-        .btn-secondary:hover { background: #f8fafc; color: #1e293b; border-color: #94a3b8; }
 
-        #mensaje-error { 
-            color: #ef4444; background-color: #fef2f2; border: 1px solid #fecaca;
-            padding: 10px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; 
-            margin-bottom: 15px; display: none; 
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.05);
+            color: #f8fafc;
+            border-color: rgba(255,255,255,0.25);
         }
 
-        /* REGLAS PARA MODO OSCURO */
-        html.dark body, html.dark html { background-color: #0f172a !important; }
-        html.dark .login-card { background-color: #1e293b; border: 1px solid #334155; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); }
-        html.dark h2 { color: #f8fafc; }
-        html.dark p { color: #94a3b8; }
-        html.dark label { color: #cbd5e1; }
-        html.dark .input-control { background-color: #0f172a; color: #f8fafc; border-color: #475569; }
-        html.dark .input-control:focus { border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25); }
-        html.dark .btn-secondary { background-color: #0f172a; color: #cbd5e1; border-color: #475569; }
-        html.dark .btn-secondary:hover { background-color: #334155; color: #f8fafc; border-color: #64748b; }
+        /* ---- LÍNEA DIVISORA ---- */
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 20px 0;
+            color: #334155;
+            font-size: 0.8rem;
+        }
 
-        /* ARREGLO PARA SWEETALERT EN LOGIN */
-        .swal2-icon { box-sizing: content-box !important; }
-        html.dark .swal2-popup { background-color: #1e293b !important; color: #f8fafc !important; }
-        html.dark .swal2-title, html.dark .swal2-html-container { color: #f8fafc !important; }
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(255,255,255,0.08);
+        }
+
+        /* ================================================
+           RESPONSIVE MÓVIL
+           ================================================ */
+        @media (max-width: 768px) {
+
+            /* El fondo ocupa toda la pantalla sin padding lateral */
+            .login-bg {
+                padding: 0;
+                align-items: flex-end;
+            
+            .login-card {
+                max-width: 100%;
+                width: 100%;
+                min-height: 100vh;
+                border-radius: 24px 24px 0 0;
+                padding: 36px 24px 48px;
+                border-left: none;
+                border-right: none;
+                border-bottom: none;
+                display: flex;             
+                flex-direction: column;
+                justify-content: center;
+    }
+}
+
+        @media (max-width: 480px) {
+            .login-card h2 { font-size: 1.4rem; }
+            .btn-primary, .btn-secondary { padding: 12px; }
+        }
     </style>
 </head>
 <body>
 
     <div class="login-bg">
         <div class="login-card">
+
+            <!-- Ícono y títulos -->
             <i class="fas fa-check-double logo-icon"></i>
-            <h2>Sistema Taller</h2>
+            <h2>OptiFleet</h2>
             <p>Ingreso de Personal</p>
 
-            <div id="mensaje-error">Correo o contraseña incorrectos.</div>
+            <!-- Mensaje de error (oculto por defecto) -->
+            <div id="mensaje-error"></div>
 
+            <!-- Formulario -->
             <form id="formLogin">
+
                 <div class="form-group">
                     <label>Correo Electrónico</label>
-                    <input type="email" name="email" class="input-control" value="admin@test.com" required>
+                    <input
+                        type="email"
+                        name="email"
+                        class="input-control"
+                        value="admin@test.com"
+                        required>
                 </div>
 
                 <div class="form-group">
                     <label>Contraseña</label>
-                    <input type="password" name="password" id="passInput" class="input-control" value="1234" required>
-                    <i class="fas fa-eye toggle-password" id="togglePass" title="Mostrar/Ocultar"></i>
+                    <input
+                        type="password"
+                        name="password"
+                        id="passInput"
+                        class="input-control"
+                        value="1234"
+                        required>
+                    <i class="fas fa-eye toggle-password" id="togglePass"></i>
                 </div>
 
-                <button type="submit" class="btn-primary">Iniciar Sesión</button>
-                
+                <button type="submit" class="btn-primary">
+                    Iniciar Sesión
+                </button>
+
+                <div class="divider">o</div>
+
                 <button type="button" class="btn-secondary" onclick="abrirConsultaUnidad()">
                     <i class="fas fa-search"></i> Consultar Estado de Unidad
                 </button>
+
             </form>
         </div>
     </div>
 
     <script>
-        // Ocultar/Mostrar contraseña
+        /* ---- Mostrar/ocultar contraseña ---- */
         document.getElementById('togglePass').addEventListener('click', function() {
-            const passInput = document.getElementById('passInput');
-            if (passInput.type === 'password') {
-                passInput.type = 'text';
-                this.classList.remove('fa-eye');
-                this.classList.add('fa-eye-slash');
+            const input = document.getElementById('passInput');
+            if (input.type === 'password') {
+                input.type = 'text';
+                this.classList.replace('fa-eye', 'fa-eye-slash');
             } else {
-                passInput.type = 'password';
-                this.classList.remove('fa-eye-slash');
-                this.classList.add('fa-eye');
+                input.type = 'password';
+                this.classList.replace('fa-eye-slash', 'fa-eye');
             }
         });
 
-        // Inicio de sesión normal
+        /* ---- Enviar formulario ---- */
         document.getElementById('formLogin').addEventListener('submit', function(e) {
-            e.preventDefault(); 
-            
+            e.preventDefault();
+
             const formData = new FormData(this);
             const msjError = document.getElementById('mensaje-error');
-            msjError.style.display = 'none'; 
+            msjError.style.display = 'none';
 
             fetch('api/auth/login.php', {
                 method: 'POST',
@@ -164,38 +298,31 @@
             })
             .then(res => res.json())
             .then(data => {
-                if(data.success) {
-                    const rolUsuario = data.usuario.rol.toLowerCase();
-
+                if (data.success) {
                     Swal.fire({
                         icon: 'success',
                         title: '¡Bienvenido!',
                         text: 'Sesión iniciada como ' + data.usuario.rol,
                         showConfirmButton: false,
-                        timer: 1500 
+                        timer: 1500,
+                        background: '#0f172a',
+                        color: '#f8fafc'
                     }).then(() => {
-                        if (rolUsuario === 'administrador') {
-                            window.location.href = 'index.php';
-                        } else {
-                            window.location.href = 'mecanico.php'; 
-                        }
+                        const rol = data.usuario.rol.toLowerCase();
+                        window.location.href = rol === 'administrador' ? 'index.php' : 'mecanico.php';
                     });
-
                 } else {
-                    msjError.innerText = data.mensaje || 'Datos incorrectos';
+                    msjError.innerText = data.mensaje || 'Correo o contraseña incorrectos';
                     msjError.style.display = 'block';
                 }
             })
-            .catch(err => {
-                console.error('Error:', err);
+            .catch(() => {
                 msjError.innerText = 'Error de conexión con el servidor.';
                 msjError.style.display = 'block';
             });
         });
 
-        /* ==========================================
-           LÓGICA DEL BUSCADOR DE UNIDADES
-           ========================================== */
+        /* ---- Consultar estado de unidad (igual que antes) ---- */
         function abrirConsultaUnidad() {
             Swal.fire({
                 title: 'Consultar Estado',
@@ -209,89 +336,51 @@
                 confirmButtonText: '<i class="fas fa-search"></i> Buscar',
                 cancelButtonText: 'Cancelar',
                 confirmButtonColor: '#2563eb',
-                cancelButtonColor: '#64748b',
+                cancelButtonColor: '#475569',
+                background: '#0f172a',
+                color: '#f8fafc',
                 showLoaderOnConfirm: true,
-                preConfirm: (unidadBuscada) => {
-                    if (!unidadBuscada) {
-                        Swal.showValidationMessage('Debes ingresar un N° Económico o Placas para buscar.');
+                preConfirm: (valor) => {
+                    if (!valor) {
+                        Swal.showValidationMessage('Escribe un N° Económico o Placas.');
                         return false;
                     }
-                    
-                    return fetch(`api/unidades/consultar_estado.php?unidad=${encodeURIComponent(unidadBuscada)}`)
-                        .then(response => {
-                            if (!response.ok) {
-                                throw new Error(response.statusText)
-                            }
-                            return response.json()
-                        })
-                        .catch(error => {
-                            Swal.showValidationMessage(`Error de conexión con la base de datos.`);
+                    return fetch(`api/unidades/consultar_estado.php?unidad=${encodeURIComponent(valor)}`)
+                        .then(res => res.json())
+                        .catch(() => {
+                            Swal.showValidationMessage('Error de conexión.');
                         });
                 },
                 allowOutsideClick: () => !Swal.isLoading()
             }).then((result) => {
                 if (result.isConfirmed) {
                     const data = result.value;
-                    
                     if (data.success) {
-                        let colorEstado = '#10b981'; // Verde si está Operativo
-                        let iconoEstado = 'success';
-                        let subtitulo = 'La unidad está libre y operativa.';
-                        let detallesTaller = '';
+                        const enTaller = data.data.estatus === 'En Mantenimiento';
+                        const color = enTaller ? '#f59e0b' : '#10b981';
+                        const icono = enTaller ? 'warning' : 'success';
 
-                        // Si está en mantenimiento, armamos la sección con fecha y tipo de servicio
-                        if (data.data.estatus === 'En Mantenimiento') {
-                            colorEstado = '#f59e0b'; // Naranja si está en taller
-                            iconoEstado = 'warning';
-                            subtitulo = 'La unidad se encuentra actualmente en el taller.';
-                            
-                            // Formatear la fecha para que se vea bonita (Día/Mes/Año)
-                            let fechaBonita = data.data.fecha_ingreso;
-                            if(fechaBonita && fechaBonita.includes('-')) {
-                                const partes = fechaBonita.split('-'); // asume formato AAAA-MM-DD
-                                if(partes.length === 3) fechaBonita = `${partes[2]}/${partes[1]}/${partes[0]}`;
-                            }
-
-                            detallesTaller = `
-                                <div style="margin-top: 15px; padding-top: 12px; border-top: 1px dashed #cbd5e1;">
-                                    <p style="margin-bottom: 6px; font-size: 0.95rem;">
-                                        <i class="fas fa-calendar-alt" style="color: #94a3b8; width: 20px;"></i> 
-                                        <strong>Fecha Ingreso:</strong> ${fechaBonita || 'No registrada'}
-                                    </p>
-                                    <p style="margin-bottom: 0; font-size: 0.95rem;">
-                                        <i class="fas fa-tools" style="color: #94a3b8; width: 20px;"></i> 
-                                        <strong>Tipo Servicio:</strong> ${data.data.tipo_servicio || 'Revisión General'}
-                                    </p>
-                                </div>
-                            `;
-                        }
-
-                        // Mostramos la tarjeta final
                         Swal.fire({
                             title: `Unidad ${data.data.economico}`,
                             html: `
-                                <div style="text-align: left; padding: 15px; background: #f8fafc; border-radius: 12px; border: 1px solid #e2e8f0; margin-top: 10px;">
-                                    <p style="margin-bottom: 8px; font-size: 1.05rem;"><strong>Marca/Modelo:</strong> ${data.data.marca} ${data.data.modelo}</p>
-                                    <p style="margin-bottom: 8px; font-size: 1.05rem;"><strong>Estado:</strong> <span style="color: ${colorEstado}; font-weight: 800; text-transform: uppercase;">${data.data.estatus}</span></p>
-                                    
-                                    ${detallesTaller}
-
-                                    <p style="font-size: 0.85rem; color: #64748b; margin-top: 15px; border-top: 1px solid #e2e8f0; padding-top: 10px;">
-                                        <i class="fas fa-info-circle"></i> ${subtitulo}
-                                    </p>
-                                </div>
-                            `,
-                            icon: iconoEstado,
+                                <div style="text-align:left; background:rgba(255,255,255,0.05); padding:16px; border-radius:12px; border:1px solid rgba(255,255,255,0.1);">
+                                    <p style="margin-bottom:10px; color:#cbd5e1;"><strong style="color:#f8fafc;">Marca/Modelo:</strong> ${data.data.marca} ${data.data.modelo}</p>
+                                    <p style="color:#cbd5e1;"><strong style="color:#f8fafc;">Estado:</strong> <span style="color:${color}; font-weight:800;">${data.data.estatus}</span></p>
+                                </div>`,
+                            icon: icono,
                             confirmButtonColor: '#2563eb',
-                            confirmButtonText: 'Cerrar'
+                            confirmButtonText: 'Cerrar',
+                            background: '#0f172a',
+                            color: '#f8fafc'
                         });
                     } else {
-                        // Si no existe, tiramos error rojo
                         Swal.fire({
                             icon: 'error',
                             title: 'No Encontrada',
                             text: data.message,
-                            confirmButtonColor: '#ef4444'
+                            confirmButtonColor: '#ef4444',
+                            background: '#0f172a',
+                            color: '#f8fafc'
                         });
                     }
                 }
