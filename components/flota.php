@@ -1,23 +1,30 @@
 <div class="flex justify-between items-center mb-8">
     <h2 class="text-2xl font-bold text-slate-800">Inventario de Unidades</h2>
-    <div class="flex gap-3">
-        <button class="btn-verde-excel" onclick="exportarFlotaExcel()" style="background-color: #10b981; color: white; padding: 10px 20px; border-radius: 8px; border: none; cursor: pointer; display: flex; align-items: center; gap: 8px; font-weight: 600; box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2);">
-            <i class="fas fa-file-excel"></i> Exportar Excel
-        </button>
-
-        <div class="relative">
-            <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"></i>
-            <input type="text" 
-                   id="buscador-flota" 
-                   class="input-elegante" 
-                   style="padding: 10px 10px 10px 40px; width: 300px; border: 1px solid #e2e8f0; border-radius: 8px; outline: none;" 
-                   placeholder="Buscar unidad, marca o placa..."
-                   onkeyup="filtrarFlota()">
+    
+    <!-- Botones separados del buscador -->
+    <div class="flex gap-3 items-center">
+        
+        <!-- Botones en su propio div -->
+        <div class="flota-botones" style="display:flex; gap:8px;">
+            <button class="btn-verde-excel" onclick="exportarFlotaExcel()" style="background-color:#10b981; color:white; padding:10px 20px; border-radius:8px; border:none; cursor:pointer; display:flex; align-items:center; gap:8px; font-weight:600;">
+                <i class="fas fa-file-excel"></i> Exportar Excel
+            </button>
+            <button class="btn-primario" onclick="abrirModalCamion()" style="background-color:#10b981; color:white; padding:10px 20px; border-radius:8px; border:none; cursor:pointer; font-weight:600;">
+                <i class="fas fa-plus"></i> Nuevo Camión
+            </button>
         </div>
 
-        <button class="btn-primario" onclick="abrirModalCamion()" style="background-color: #10b981; color: white; padding: 10px 20px; border-radius: 8px; border: none; cursor: pointer; font-weight: 600;">
-            <i class="fas fa-plus"></i> Nuevo Camión
-        </button>
+        <!-- Buscador en su propio div -->
+        <div class="flota-buscador relative">
+            <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"></i>
+            <input type="text" 
+                id="buscador-flota" 
+                class="input-elegante" 
+                style="padding:10px 10px 10px 40px; width:300px; border:1px solid #e2e8f0; border-radius:8px; outline:none;" 
+                placeholder="Buscar unidad, marca o placa..."
+                inkeyup="filtrarFlota()">
+        </div>
+
     </div>
 </div>
 
