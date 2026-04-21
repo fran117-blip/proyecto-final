@@ -30,9 +30,10 @@
 </p>
 
 <p align="center">
-  <a href="https://youtu.be/PqBZUynysXU?si=rdb9_ovWa543fEZU">
-    <img src="assets/img/logo.png" alt="SIGM Demo Mantenimiento" width="100%" style="max-width:800px;"/>
-  </a>
+  <strong>▶️ Demo del Sistema</strong><br><br>
+  <a href="https://youtu.be/PqBZUynysXU?si=rdb9_ovWa543fEZU" target="_blank">
+    <img src="https://img.youtube.com/vi/PqBZUynysXU/maxresdefault.jpg" alt="Video Demo OptiFleet" width="100%" style="max-width:750px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"/>
+  </a>
 </p>
 
 ---
